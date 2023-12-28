@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>rhubarb-geek-nz.SQLite.Core.NetStandard</id>
+    <version>1.0.118.0</version>
+    <title>System.Data.SQLite Core for the .NET Standard 2.x</title>
+    <authors>SQLite Development Team</authors>
+    <owners>SQLite Development Team</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://www.sqlite.org/copyright.html</licenseUrl>
+    <projectUrl>https://github.com/rhubarb-geek-nz/SQLite.Core.NetStandard</projectUrl>
+    <iconUrl>https://system.data.sqlite.org/images/sqlite128.png</iconUrl>
+    <description>SQLite database engine for multiple architectures along with the ADO.NET provider.</description>
+    <copyright>Copyright © 2004-2008 Hipp, Wyrick &amp; Company, Inc.</copyright>
+    <language>en-US</language>
+    <tags>sqlite database ado.net provider interop</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+      <group targetFramework=".NETStandard2.1" />
+    </dependencies>
+    <repository type="git" url="https://github.com/rhubarb-geek-nz/SQLite.Core.NetStandard" />
+  </metadata>
+</package>
