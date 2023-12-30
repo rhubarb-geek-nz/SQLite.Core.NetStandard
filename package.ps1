@@ -21,6 +21,7 @@
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 $LinuxVersion = 'debian.11'
+$AlpineVersion = 'alpine.3.19'
 $OSXVersion = 'osx.11'
 
 trap
@@ -67,6 +68,8 @@ foreach ($ZipSpec in @(
 		@( "https://system.data.sqlite.org/blobs/$Version/sqlite-netStandard20-binary-$Version.zip", "$DataDir/lib/netstandard2.0" ),
 		@( "https://system.data.sqlite.org/blobs/$Version/sqlite-netStandard21-binary-$Version.zip", "$DataDir/lib/netstandard2.1" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$LinuxVersion.zip", "$DataDir" ),
+		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$AlpineVersion.zip", "$DataDir" ),
+		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version-bionic/SQLite.Interop-$Version-linux-bionic.zip", "$DataDir" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$OSXVersion.zip", "$DataDir" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop-win/releases/download/$Version/SQLite.Interop-$Version-win.zip", "$DataDir" )
 ))
@@ -101,6 +104,7 @@ foreach ($NetStandard in "$DataDir/lib/netstandard2.0", "$DataDir/lib/netstandar
 
 foreach ($SrcDest in @(
 	@($LinuxVersion,'linux'),
+	@($AlpineVersion,'linux-musl'),
 	@($OSXVersion,'osx')
 ))
 {
