@@ -16,6 +16,8 @@ The test project demonstrates the usage of multiple architectures.
 ```
 System.Data.SQLite.dll
 ref/test.dll
+runtimes/freebsd-arm64/native/SQLite.Interop.dll
+runtimes/freebsd-x64/native/SQLite.Interop.dll
 runtimes/linux-arm/native/SQLite.Interop.dll
 runtimes/linux-arm64/native/SQLite.Interop.dll
 runtimes/linux-bionic-arm/native/SQLite.Interop.dll

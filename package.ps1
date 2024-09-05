@@ -70,6 +70,7 @@ foreach ($ZipSpec in @(
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$LinuxVersion.zip", "$DataDir" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$AlpineVersion.zip", "$DataDir" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version-bionic/SQLite.Interop-$Version-linux-bionic.zip", "$DataDir" ),
+		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version-freebsd/SQLite.Interop-$Version-freebsd.zip", "$DataDir" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$OSXVersion.zip", "$DataDir" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop-win/releases/download/$Version/SQLite.Interop-$Version-win.zip", "$DataDir" )
 ))

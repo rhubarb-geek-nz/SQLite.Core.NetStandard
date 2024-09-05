@@ -20,6 +20,7 @@
 
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
+$Framework = 'net8.0'
 
 trap
 {
@@ -57,7 +58,7 @@ SELECT * FROM MESSAGES;
 	}
 }
 
-& dotnet "bin/Release/net6.0/test.dll"
+& dotnet "bin/Release/$Framework/test.dll"
 
 If ( $LastExitCode -ne 0 )
 {
