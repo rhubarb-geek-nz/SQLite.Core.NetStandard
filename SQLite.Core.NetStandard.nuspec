@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>rhubarb-geek-nz.SQLite.Core.NetStandard</id>
-    <version>1.0.118.0</version>
+    <version>1.0.119.0</version>
     <title>System.Data.SQLite Core for the .NET Standard 2.x</title>
     <authors>SQLite Development Team</authors>
     <owners>SQLite Development Team</owners>

@@ -20,9 +20,6 @@
 
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
-$LinuxVersion = 'debian.11'
-$AlpineVersion = 'alpine.3.19'
-$OSXVersion = 'osx.11'
 
 trap
 {
@@ -67,11 +64,11 @@ if ( -not ( Test-Path $ZipDir ) )
 foreach ($ZipSpec in @(
 		@( "https://system.data.sqlite.org/blobs/$Version/sqlite-netStandard20-binary-$Version.zip", "$DataDir/lib/netstandard2.0" ),
 		@( "https://system.data.sqlite.org/blobs/$Version/sqlite-netStandard21-binary-$Version.zip", "$DataDir/lib/netstandard2.1" ),
-		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$LinuxVersion.zip", "$DataDir" ),
-		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$AlpineVersion.zip", "$DataDir" ),
+		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-linux.zip", "$DataDir" ),
+		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-linux-musl.zip", "$DataDir" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version-bionic/SQLite.Interop-$Version-linux-bionic.zip", "$DataDir" ),
-		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version-freebsd/SQLite.Interop-$Version-freebsd.zip", "$DataDir" ),
-		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-$OSXVersion.zip", "$DataDir" ),
+		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-freebsd.zip", "$DataDir" ),
+		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop/releases/download/$Version/SQLite.Interop-$Version-osx.zip", "$DataDir" ),
 		@( "https://github.com/rhubarb-geek-nz/SQLite.Interop-win/releases/download/$Version/SQLite.Interop-$Version-win.zip", "$DataDir" )
 ))
 {
@@ -103,25 +100,7 @@ foreach ($NetStandard in "$DataDir/lib/netstandard2.0", "$DataDir/lib/netstandar
 	}
 }
 
-foreach ($SrcDest in @(
-	@($LinuxVersion,'linux'),
-	@($AlpineVersion,'linux-musl'),
-	@($OSXVersion,'osx')
-))
-{
-	$Src=$SrcDest[0]
-	$Dest=$SrcDest[1]
-
-	Write-Host $Src '->' $Dest
-
-	foreach ($Arch in 'arm', 'arm64', 'x64')
-	{
-		if ( Test-Path "$DataDir/runtimes/$Src-$Arch" )
-		{
-			Rename-Item "$DataDir/runtimes/$Src-$Arch" "$DataDir/runtimes/$Dest-$Arch"
-		}
-	}
-}
+Remove-Item "$DataDir/runtimes/osx" -Recurse
 
 & nuget pack SQLite.Core.NetStandard.nuspec -BasePath $DataDir
 
